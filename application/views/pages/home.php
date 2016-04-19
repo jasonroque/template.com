@@ -71,7 +71,7 @@
         <div class='row'>
             <div class='col-lg-6'>
                 <h2>Who are we?</h2>
-                <h1>Lorem ipsum dolor sit amet</h1>
+                <h1 class="header">Lorem ipsum dolor sit amet</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet urna in eros eleifend viverra.
                     Cras vulputate arcu quis sapien dignissim, vel ultricies lacus fringilla. Aliquam ac turpis leo.
@@ -81,7 +81,7 @@
                 <div class="col-md-6 col-lg-12">
                     <div class="row">
                         <h3>Who are we?</h3>
-                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <h2 class="header">Lorem ipsum dolor sit amet</h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet urna in eros eleifend viverra.
                             Cras vulputate arcu quis sapien dignissim, vel ultricies lacus fringilla. Aliquam ac turpis leo.
@@ -92,7 +92,7 @@
                 <div class="col-md-6 col-lg-12">
                     <div class="row">
                         <h3>Who are we?</h3>
-                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <h2 class="header">Lorem ipsum dolor sit amet</h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet urna in eros eleifend viverra.
                             Cras vulputate arcu quis sapien dignissim, vel ultricies lacus fringilla. Aliquam ac turpis leo.
@@ -105,34 +105,129 @@
 </div>
 
 <div id="product-list">
-    <div class="container" >
-        <div class="col-sm-6 col-md-3">
-            <a href="">
-                <i class="fa fa-circle-o-notch fa-3x"></i>
-                <h2>Lorem ipsum dolor</h2>
-                <img class="img-responsive" src="/assets/images/featured/cover-01.jpg" />
-            </a>
+    <div class="nav nav-tabs" role="tablist">
+        <div class="container">
+            <div class="col-sm-6 col-md-3 active" role="presentation">
+                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
+                    <i class="fa fa-circle-o-notch fa-3x"></i>
+                    <h2>Lorem ipsum dolor</h2>
+                    <img class="img-responsive" src="/assets/images/featured/cover-01.jpg" />
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">
+                    <i class="fa fa-circle-o-notch fa-3x"></i>
+                    <h2>Lorem ipsum dolor</h2>
+                    <img class="img-responsive" src="/assets/images/featured/cover-02.jpg" />
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">
+                    <i class="fa fa-circle-o-notch fa-3x"></i>
+                    <h2>Lorem ipsum dolor</h2>
+                    <img class="img-responsive" src="/assets/images/featured/cover-03.jpg" />
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">
+                    <i class="fa fa-circle-o-notch fa-3x"></i>
+                    <h2>Lorem ipsum dolor</h2>
+                    <img class="img-responsive" src="/assets/images/featured/cover-04.jpg" />
+                </a>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3">
-            <a href="">
-                <i class="fa fa-circle-o-notch fa-3x"></i>
-                <h2>Lorem ipsum dolor</h2>
-                <img class="img-responsive" src="/assets/images/featured/cover-02.jpg" />
-            </a>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="tab1">
+            <div class="container">
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-2">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3">
-            <a href="">
-                <i class="fa fa-circle-o-notch fa-3x"></i>
-                <h2>Lorem ipsum dolor</h2>
-                <img class="img-responsive" src="/assets/images/featured/cover-03.jpg" />
-            </a>
+        <div role="tabpanel" class="tab-pane" id="tab2">
+            <div class="container">
+                <div class="pane-content col-xs-4 col-sm-4 col-md-4">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-4">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-4 col-sm-4 col-md-4">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-3">
-            <a href="">
-                <i class="fa fa-circle-o-notch fa-3x"></i>
-                <h2>Lorem ipsum dolor</h2>
-                <img class="img-responsive" src="/assets/images/featured/cover-04.jpg" />
-            </a>
+        <div role="tabpanel" class="tab-pane" id="tab3">
+            <div class="container">
+                <div class="pane-content col-xs-6 col-sm-3 col-md-3">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-6 col-sm-3 col-md-3">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-6 col-sm-3 col-md-3">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-6 col-sm-3 col-md-3">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab4">
+            <div class="container">
+                <div class="pane-content col-xs-6 col-sm-6 col-md-6">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+                <div class="pane-content col-xs-6 col-sm-6 col-md-6">
+                    <a href="">
+                        <h4>Lorem ipsum dolor</h4>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -142,10 +237,12 @@
         <?php foreach ($featured_news as $featured): ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="<?php echo '/news/' . $featured['slug']; ?>">
-                        <img src="<?php if (isset($featured['img']) && $featured['img'] !== '') { ?>/assets/images/featured/<?php echo $featured['img'] ?><?php } else { ?>http://placehold.it/840x420<?php } ?>" class="img-responsive center-block" />
-                    </a>
-                    <span class="date-published"><?php echo $featured['date_published'] = date("M j Y"); ?></span>
+                    <div class="top">
+                        <a href="<?php echo '/news/' . $featured['slug']; ?>">
+                            <img src="<?php if (isset($featured['img']) && $featured['img'] !== '') { ?>/assets/images/featured/<?php echo $featured['img'] ?><?php } else { ?>http://placehold.it/840x420<?php } ?>" class="img-responsive center-block" />
+                        </a>
+                        <span class="date-published"><?php echo $featured['date_published'] = date("M j Y"); ?></span>
+                    </div>
                     <div class="caption">
                         <h3><?php echo $featured['title'] ?></h3>
                         <p>

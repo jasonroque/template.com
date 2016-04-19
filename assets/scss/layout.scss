@@ -1,9 +1,10 @@
 @import "variables.scss";
 @import "mixin.scss";
 
+body {font-family: 'Roboto', sans-serif;}
+
 a {
     @include transition(all .2s ease);
-
     &:hover, &:focus {text-decoration: none; color: #333;}
 }
 
@@ -14,7 +15,7 @@ header {
     position:relative;
 
     .top {
-        background: #eee;
+        background: #f1f1f1;
 
         .container {
             position: relative;
@@ -144,6 +145,49 @@ footer {
     border-radius: 3px;
 }
 
+#page-header {
+    margin-bottom: 45px; 
+    position: relative;
+    .header {
+        height: 186px;
+        background: url("/assets/images/pg-header.jpg") 100% center no-repeat;
+        .container {
+            height: 100%; 
+            display: table;
+            .info {
+                display: table-cell;
+                vertical-align: middle;
+                
+                h1 small {font-size: 50%;}
+            }
+        }
+    }
+    .breadcrumb-wrapper {
+        background:#fff;
+        padding: 8px 0;
+        @include box-shadow(0px 5px 15px -10px rgba(153,153,153,1)); 
+        
+        .breadcrumb {
+            background: none;
+            margin-bottom: 0;
+            li {
+                font-size: 18px;
+                a{
+                    color: #222; font-weight: 600;
+                    &:hover { color: $dark-color; }
+                }
+            }
+            &>li+li:before {
+                font-family: "FontAwesome";
+                content: "\f0da";
+                padding: 0 18px;
+            }
+            .divider {display: none;}
+            
+        }
+    }
+}
+
 #home-carousel {
     z-index: 3;
     .carousel-inner {    
@@ -266,21 +310,34 @@ footer {
     }
 }
 
+#page-header + #featured {padding-top: 0;}
+
 #featured {
     position:relative;
     padding: 60px 15px 45px;
+
+    .col-md-6 .thumbnail {
+        .caption {
+            padding: 20px 30px 5px;
+            h3 {margin-top: 10px;}
+        }
+    }
 
     .thumbnail {
         padding: 0;
         position: relative;
 
-        .date-published {
-            position: absolute;
-            left: 30px;
-            background: $primary-color;
-            color: #fff;
-            padding: 4px;
-            top: 43%;
+        .top {
+            position: relative;
+
+            .date-published {
+                position: absolute;
+                left: 30px;
+                background: $primary-color;
+                color: #fff;
+                padding: 4px;
+                bottom: 0;
+            }
         }
 
         .caption {
@@ -288,6 +345,33 @@ footer {
             padding: 4px 30px;
 
             h3 {font-weight: 600}
+        }
+
+        .info {
+            padding: 0 30px 15px;
+            ul {
+                padding-left: 0;
+                li {
+                    display: inline-block; 
+                    list-style: none; 
+                    border-right: 1px solid darken(#eee, 10%);
+                    padding-right: 8px;
+                    margin-right: 3px;
+                    &:last-child {border-right: none;}
+
+                    a {
+                        color: #777;
+                        &:hover {color: #222}
+                    }
+
+                    ul li {
+                        padding-right: 0;
+                        border-right: none;
+                        &:after {content: "/"; padding-left: 8px; font-weight: 800; color: #777;}
+                        &:last-child:after {content: ""; padding-left: 8px;}
+                    }
+                }
+            }
         }
     }
 
@@ -357,34 +441,31 @@ footer {
     }
 
     h1, h2, h3 {text-transform: uppercase}
+    .header {text-shadow: 0 1px 2px rgba(0,0,0,0.4); color: #fff;}
     h1 {font-size: 46px; margin-top: 10px; font-weight: 600;}
     h2 {font-size: 26px}
     h3 {font-size: 18px}
-    p {font-size: 16px; color: lighten(#222, 7%)}
+    p {font-size: 16px; color: lighten(#222, 7%); font-weight: 400}
 }
 
 #product-list {
     margin-top: -30px;
     border-bottom: 1px solid darken(#eee, 10%);
-    
-    .col-md-3 {
-        padding: 0;        
-        margin-left: -1px;
-        &:first-child {margin-left: 1px;}
-        
+
+    .nav-tabs .col-md-3 {
+        padding: 0;
+
         a {
             display: block;  
             position: relative;
-            border-left: 1px solid darken(#eee, 10%);
             padding: 30px 15px; 
             margin-top: 30px;
             background: #fff;
             overflow: hidden;
-            
-            &:last-child{border-right: 1px solid darken(#eee, 10%);}
-            
+            border-left: 1px solid darken(#eee, 10%);
+
             img, h2, .fa {@include transition(all .2s ease)}
-            
+
             img {
                 position: absolute; 
                 z-index: 2 !important;
@@ -396,7 +477,7 @@ footer {
             .fa, h2 {z-index: 6 !important; position: relative;}
             h2 {color: #222}
             .fa {margin: 0; @include transition(all .2s ease); color: darken(#eee, 10%)}
-            
+
             &:hover {
                 padding: 60px 15px 30px;
                 margin-top: 0;
@@ -404,12 +485,45 @@ footer {
                 h2{color: #fff;}
                 .fa {margin: -15px 0 15px; color: $primary-color;}
             }
+        }      
+
+        &.active a {
+            padding: 60px 15px 30px;
+            margin-top: 0;
+            img{opacity: .8; @include transform(scale(1.1))}
+            h2{color: #fff;}
+            .fa {margin: -15px 0 15px; color: $primary-color;}
+        }
+
+        &:last-child a {border-right: 1px solid darken(#eee, 10%);}
+    }
+
+    .tab-content {
+        .tab-pane {
+            text-align: center;
+            .pane-content {
+                padding:0;
+
+                a {
+                    display: block;
+                    padding: 15px;
+                    border-left: 1px solid darken(#eee, 10%);
+                    h4 {margin: 0; color: #222; @include transition(all .2s ease);}
+
+                    &:hover {
+                        background: $primary-color;
+                        h4 {color: #fff;}
+                    }
+                }
+
+                &:last-child a {border-right: 1px solid darken(#eee, 10%);}
+            }
         }
     }
 }
 
 #about-us {
-    background: #f2f2f2;
+    background: #f1f1f1;
     padding: 20px 0;
     margin-bottom: 0;
     .btn-group{
@@ -425,6 +539,22 @@ footer {
     }
     h4{margin-top: 10px; font-size: 21px;}
     p {margin-bottom: 10px; font-size: 16px}
+}
+
+#news-one {
+    padding-bottom: 60px;
+    article {
+        border-left: 3px solid $primary-color;
+        padding-top: 45px;
+        padding-left: 30px;
+        
+        .date-published {font-size: 18px; color: darken(#eee, 20%);}
+        
+        h2{ margin-top: 0; margin-bottom: 30px;}
+        p {font-size: 17px; padding-bottom: 30px}
+    }
+    
+    
 }
 
 @media (max-width: 1200px) {
@@ -541,24 +671,57 @@ footer {
             &:last-child {padding-left: 15px;}
         }
     }
-    
+
     #product-list {
         border: none;
+        margin-top: 0;
         .container {padding: 0;}
-        .col-md-3 {
-            margin: 0!important;
-            a {
-                border-right: 0 !important;
-                border-bottom: 1px solid darken(#eee, 10%);
-                margin-top: 0;
-                padding: 15px;
-                .fa {float: right; margin-top: 10px;}
-                h2 {font-size: 24px; float: left; margin-top: 15px}
-                
-                img {width: 100%; height: auto}
-                &:hover {
+        .nav-tabs {
+            .col-md-3 {
+                margin: 0!important;
+                border-top: 1px solid darken(#eee, 10%);
+                &:nth-child(1), &:nth-child(2) {border-top: none;}
+
+                a {
+                    border-right: 0 !important;
+                    margin-top: 0;
                     padding: 15px;
-                    .fa{margin: 10px 0 0;}
+                    .fa {float: right; margin-top: 10px;}
+                    h2 {font-size: 24px; float: left; margin-top: 15px}
+
+                    img {width: 100%; height: auto}
+                    &:hover {
+                        padding: 15px;
+                        .fa{margin: 10px 0 0;}
+                    }
+                }
+
+                &.active a {
+                    padding: 15px;
+                    .fa {margin: 10px 0 0;}
+                }
+            }
+        }
+
+        .tab-content .tab-pane .pane-content {
+            a {border-bottom: 1px solid darken(#eee, 10%);}
+            h4 {font-size: 14px;}
+
+            &:last-child a{border-right: none;}
+        }
+    }
+
+    #featured {
+        .col-md-6 .thumbnail {
+            .caption {
+                h3 small {display: block; margin-top: 5px;}
+                a {display: block; margin-top: 15px;}
+            }
+            .info {
+                ul li {
+                    display: block;
+                    border-right: none;
+                    ul li {display: inline-block;}
                 }
             }
         }
@@ -688,6 +851,20 @@ footer {
         h1 {font-size: 38px;}
     }
 
+    #product-list {
+        .nav-tabs {
+            .col-md-3 {
+                a {border:none}
+                &:last-child a {border-bottom: none;}
+            }
+        }
+
+        .tab-content {
+            min-height: 88px;
+            .tab-pane .pane-content a h4 {font-size: 12px;}
+        }
+    }
+
     #featured {
         .thumbnail {
             max-width: 360px;
@@ -697,7 +874,7 @@ footer {
         .col-sm-12 {text-align: center;}
 
         .btn-group-vertical {
-            width: 360px;
+            max-width: 360px;
             margin: 0 auto;
 
             .btn {
