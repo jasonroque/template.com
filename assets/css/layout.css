@@ -162,7 +162,6 @@ footer {
 #home-carousel {
   z-index: 3; }
   #home-carousel .carousel-inner {
-    height: auto;
     z-index: 4; }
     #home-carousel .carousel-inner .item {
       z-index: 4; }
@@ -170,25 +169,30 @@ footer {
       top: 50%;
       bottom: 0;
       left: 0;
-      height: auto;
-      width: 100%;
+      right: 0;
       text-align: left;
       position: absolute;
-      transform: translateY(-50%); }
-      #home-carousel .carousel-inner .carousel-caption .container h1 {
-        font-size: 54px;
-        font-weight: 800;
-        margin-top: 0;
-        width: 100%; }
-      #home-carousel .carousel-inner .carousel-caption .container h3 {
-        margin-top: 0;
-        color: #32dd42;
-        text-transform: uppercase; }
-      #home-carousel .carousel-inner .carousel-caption .container p {
-        font-size: 16px;
-        line-height: 25px;
-        margin-top: 20px;
-        width: 75%; }
+      transform: translateY(-50%);
+      height: 100%;
+      display: table;
+      margin: 0 auto; }
+      #home-carousel .carousel-inner .carousel-caption .container {
+        display: table-cell;
+        vertical-align: middle; }
+        #home-carousel .carousel-inner .carousel-caption .container h1 {
+          font-size: 54px;
+          font-weight: 800;
+          margin-top: 0;
+          width: 100%; }
+        #home-carousel .carousel-inner .carousel-caption .container h3 {
+          margin-top: 0;
+          color: #32dd42;
+          text-transform: uppercase; }
+        #home-carousel .carousel-inner .carousel-caption .container p {
+          font-size: 16px;
+          line-height: 25px;
+          margin-top: 20px;
+          width: 75%; }
 
 .btn-group {
   margin-top: 20px; }
@@ -628,6 +632,9 @@ footer {
       color: #1cab2a; }
     #contact-info .col-lg-push-8 {
       border-right: none; } }
+@media (min-width: 1200px) {
+  #home-carousel .carousel-inner .carousel-caption {
+    width: 1170px; } }
 @media (max-width: 992px) {
   header .top .container .navbar .navbar-nav > li {
     float: right;
