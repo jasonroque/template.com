@@ -52,8 +52,8 @@
                                 <button type="submit" class="btn btn-default">Submit</button>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/services">Services</a></li>
                                 <li><a href="/news">News</a></li>
-                                <li><a href="#">Link</a></li>
                                 <li><a href="#">Link</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

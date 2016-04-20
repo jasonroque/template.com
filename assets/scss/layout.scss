@@ -15,7 +15,7 @@ header {
     position:relative;
 
     .top {
-        background: #f1f1f1;
+        background: $black-color;
 
         .container {
             position: relative;
@@ -45,7 +45,7 @@ header {
             .navbar {
                 border: none;
                 min-height: 40px;
-                .navbar-nav>li>a {padding: 10px 15px; font-weight: 600; color: #333}
+                .navbar-nav>li>a {padding: 10px 15px; font-weight: 600; color: #fff}
             }
         }
     }
@@ -95,7 +95,6 @@ header {
                                 color: #fff;
                                 padding: 0;
                                 @include transition(all .2s ease-out);
-                                top: 100%;
 
                                 &>li{
                                     border-bottom: 1px solid $dark-color;
@@ -157,7 +156,7 @@ footer {
             .info {
                 display: table-cell;
                 vertical-align: middle;
-                
+
                 h1 small {font-size: 50%;}
             }
         }
@@ -166,7 +165,7 @@ footer {
         background:#fff;
         padding: 8px 0;
         @include box-shadow(0px 5px 15px -10px rgba(153,153,153,1)); 
-        
+
         .breadcrumb {
             background: none;
             margin-bottom: 0;
@@ -183,7 +182,7 @@ footer {
                 padding: 0 18px;
             }
             .divider {display: none;}
-            
+
         }
     }
 }
@@ -191,7 +190,7 @@ footer {
 #home-carousel {
     z-index: 3;
     .carousel-inner {    
-        
+
         z-index: 4;
         .item {z-index: 4;}
         .carousel-caption {
@@ -340,7 +339,7 @@ footer {
                 background: $primary-color;
                 color: #fff;
                 padding: 4px;
-                bottom: 0;
+                bottom: -3px;
             }
         }
 
@@ -360,7 +359,7 @@ footer {
                     list-style: none; 
                     border-right: 1px solid darken(#eee, 10%);
                     padding-right: 8px;
-                    margin-right: 3px;
+                    margin-right: 5px;
                     &:last-child {border-right: none;}
 
                     a {
@@ -378,45 +377,45 @@ footer {
             }
         }
     }
+}
 
-    .btn-group-vertical {
+.btn-group-vertical {
+    width: 100%;
+    .btn {
         width: 100%;
-        .btn {
-            width: 100%;
-            text-align: left;
-            white-space: normal;
-            border-left: 3px solid $primary-color;
-            padding: 5px 16px 4px;
-            @include transition(.2s all ease);
+        text-align: left;
+        white-space: normal;
+        border-left: 3px solid $primary-color;
+        padding: 5px 16px 4px;
+        @include transition(.2s all ease);
 
-            h3, h4, h5, p {@include transition(.2s all ease);}
+        h3, h4, h5, p {@include transition(.2s all ease);}
 
-            p {font-size: 12px; color: #aaa;}
-            h3 {font-size: 20px; margin: 10px 0;}
-            h4 {font-weight:600;}
-            h5 {margin: 10px 0;}
+        p {font-size: 12px; color: #aaa;}
+        h3 {font-size: 20px; margin: 10px 0;}
+        h4 {font-weight:600;}
+        h5 {margin: 10px 0;}
 
-            &:hover {
-                border-left: 3px solid $darker-color;
-                background: $primary-color;
+        &:hover {
+            border-left: 3px solid $darker-color;
+            background: $primary-color;
 
-                h3, h4, h5, p {color: #fff;}
+            h3, h4, h5, p {color: #fff;}
 
-                &#more-stuff:after {color: $darker-color;}
-            }
+            &#more-stuff:after {color: $darker-color;}
+        }
 
-            &#more-stuff{
-                padding: 6px 16px 7px;
-                &:after {
-                    font-family: "FontAwesome";
-                    content: "\f054";    
-                    float: right;
-                    color: #aaa;
-                    position: absolute;
-                    right: 16px;
-                    top: 30%;
-                    @include transition(.2s all ease);
-                }
+        &#more-stuff{
+            padding: 6px 16px 7px;
+            &:after {
+                font-family: "FontAwesome";
+                content: "\f054";    
+                float: right;
+                color: #aaa;
+                position: absolute;
+                right: 16px;
+                top: 30%;
+                @include transition(.2s all ease);
             }
         }
     }
@@ -479,10 +478,11 @@ footer {
                 opacity: 0;
             }
             .fa, h2 {z-index: 6 !important; position: relative;}
-            h2 {color: #222}
+            h2 {color: #222; font-size: 28px;}
             .fa {margin: 0; @include transition(all .2s ease); color: darken(#eee, 10%)}
 
             &:hover {
+                border-left: 1px solid #555;
                 padding: 60px 15px 30px;
                 margin-top: 0;
                 img{opacity: .8; @include transform(scale(1.1))}
@@ -494,6 +494,7 @@ footer {
         &.active a {
             padding: 60px 15px 30px;
             margin-top: 0;
+            border-left: 1px solid #555;
             img{opacity: .8; @include transform(scale(1.1))}
             h2{color: #fff;}
             .fa {margin: -15px 0 15px; color: $primary-color;}
@@ -527,7 +528,7 @@ footer {
 }
 
 #about-us {
-    background: #f1f1f1;
+    background: $black-color;
     padding: 20px 0;
     margin-bottom: 0;
     .btn-group{
@@ -537,28 +538,134 @@ footer {
             &:hover {background: $darker-color; border-color: $darker-color;}
         }
         .btn-more {
-            border-color: #888; color: #666;
-            &:hover {border-color: darken(#888, 14%); color: darken(#666, 14%); background: transparent;}
+            border-color: #fff; color: #fff;
+            &:hover {border-color: darken(#fff, 14%); color: darken(#fff, 14%); background: transparent;}
         }
     }
-    h4{margin-top: 10px; font-size: 21px;}
-    p {margin-bottom: 10px; font-size: 16px}
+    h4{margin-top: 10px; font-size: 21px; color: #fff;}
+    p {margin-bottom: 10px; font-size: 16px; font-weight: 400; color: darken(#fff, 10%);}
 }
 
 #news-one {
     padding-bottom: 60px;
+    img {width: 100%; @include box-shadow(2px 0px 5px 0px rgba(204,204,204,0.5))}
     article {
         border-left: 3px solid $primary-color;
-        padding-top: 45px;
-        padding-left: 30px;
-        
+        padding: 45px 30px 0;
+        @include box-shadow(2px 3px 5px 0px rgba(204,204,204,0.5));
+
         .date-published {font-size: 18px; color: darken(#eee, 20%);}
-        
+
         h2{ margin-top: 0; margin-bottom: 30px;}
         p {font-size: 17px; padding-bottom: 30px}
+
+        .info {
+            border-top: 1px solid darken(#eee, 10%);
+            padding-bottom: 5px;
+            ul {
+                padding-top: 15px;
+                padding-left: 0;
+                li {
+                    display: inline-block; 
+                    font-size: 18px; 
+                    padding: 0 15px; 
+                    border-right: 1px solid darken(#eee, 10%);
+
+                    a {
+                        color: darken(#eee, 20%);
+                        &:hover {color: #222;}
+                    }
+
+                    &:first-child {padding-left: 0;}
+                    &:last-child {border-right: none;}
+                    ul {
+                        padding-top: 0;
+                        padding-left: 0;
+                        li {
+                            border-right: none; padding: 0 8px 0 0;
+                            &:after {content: "/"; padding-left: 15px; font-weight: 800; color: darken(#eee, 20%);;}
+                            &:last-child:after {content: ""}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #side-nav {
+        #similar {
+            margin-bottom: 30px;
+            h3 {margin-top: 0;}
+        }
+
+        #categories {
+            ul {
+                padding-left : 15px;
+                li a {font-size:16px;}
+            }
+        }
+    }
+}
+
+#services {
+    .btn-group-vertical {
+        border-bottom: none;
+        a {
+            &.active {
+                background: $primary-color; 
+                border-color: $primary-color; 
+                border-left-color: $darker-color;
+                color: #fff;
+                position: relative;
+                @include box-shadow(none);
+                
+                &:after {
+                    width: 35px;
+                    height: 35px;
+                    content: "";
+                    position: absolute;
+                    background-color: $primary-color;
+                    right: -17px; top: 7px;
+                    border-radius: 3px;
+                    @include transform(rotate(45deg));
+                }
+            }
+            
+            &:hover {border-color: $primary-color; border-left-color: $darker-color;}
+        }
     }
     
-    
+    .service-content {
+        margin-bottom: 60px;
+
+        p {font-size: 16px; margin-bottom: 15px;}
+        .btn {
+            background: $primary-color; color: #fff; 
+            border-color: $primary-color;}
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1430px) {
+    #contact-info .col-lg-2 {
+        a .dl-horizontal {
+            padding: 20px 0;
+            dt {
+                width: 40px;
+                .fa {font-size: 2.5em;}
+            }
+            dd {
+                margin-left: 42px;
+                h4 {font-size: 15px;}
+            }
+        }
+        #social {
+            padding: 20px 15px;
+            li  {
+                padding-right: 10px;
+                a .fa { font-size: 2.5em; }
+            }
+        }
+    }
 }
 
 @media (max-width: 1200px) {
@@ -657,6 +764,7 @@ footer {
             left:0; right: 0;
             text-align: center;
             top: 50%;
+            width: 100%;
             .container {
                 h1 {font-size: 36px}
                 h3 {font-size: 16px;}
@@ -725,7 +833,7 @@ footer {
                 ul li {
                     display: block;
                     border-right: none;
-                    ul li {display: inline-block;}
+                    ul li { display: inline-block; }
                 }
             }
         }
@@ -734,6 +842,16 @@ footer {
     #contact-info {
         height: 225px;
         .col-sm-6:nth-child(even) {border-right: none !important;}
+    }
+
+    #news-one {
+        .col-md-9 {margin-bottom: 60px;}
+        img {width: 100%;}
+        article {
+            padding-right: 30px; 
+            /*border-right: 3px solid $primary-color;*/
+            border-bottom: 1px solid #ccc;
+        }
     }
 }
 
@@ -812,8 +930,8 @@ footer {
     #home-carousel {
         z-index: 3;
         .carousel-inner .carousel-caption .container {
-            h1{ font-size:5vw;}
-            h3{ font-size: 3vw; margin-top: -8px}
+            h1{ font-size:6vw;}
+            h3{ font-size: 4vw; margin-top: -8px}
             p {display: none;}
             .btn-group {
                 margin-top : 5px;
@@ -877,24 +995,26 @@ footer {
 
         .col-sm-12 {text-align: center;}
 
-        .btn-group-vertical {
-            max-width: 360px;
-            margin: 0 auto;
 
-            .btn {
-                padding: 10px 16px;
-                h3, h4, p {margin: 0;}
-                h4 {padding: 5px 0;}
-                p {float: right; margin-top: -23px;}
-                h5 {display:none}
+    }
 
-                display: none;
-                &#more-stuff{
-                    display:block !important;
-                    border-radius :4px;
-                    padding: 8px 15px;
-                    &:after {top: 25%}
-                }
+    .btn-group-vertical {
+        max-width: 360px;
+        margin: 0 auto;
+
+        .btn {
+            padding: 10px 16px;
+            h3, h4, p {margin: 0;}
+            h4 {padding: 5px 0;}
+            p {float: right; margin-top: -23px;}
+            h5 {display:none}
+
+            display: none;
+            &#more-stuff{
+                display:block !important;
+                border-radius :4px;
+                padding: 8px 15px;
+                &:after {top: 25%}
             }
         }
     }
@@ -903,10 +1023,43 @@ footer {
         text-align: center;
         .btn-group {float: none;}
     }
+
+    #news-one {
+        article .info ul li {font-size: 14px;}
+        #side-nav {
+            h3{display: none;}
+            #similar {
+                margin-bottom: 0;
+                .btn-group-vertical {max-width: 100%;}
+            }
+            #categories {display: none;}
+        }
+    }
+
 } 
 
 @media (max-width: 480px) {
     #home-carousel .carousel-inner .carousel-caption {
         .btn-lg {padding: 8px 10px;}
+    }
+}
+
+@media (max-width: 396px) {
+    header {
+        .top .container {
+            &:before, &:after {display: none;}
+        }
+        .navigation {
+            .navbar .container .navbar-header{
+                &:before {display: none;}
+                .navbar-brand {
+                    padding-right: 0;
+                    height: 60px;
+                    margin: 25px 0;
+                    &>img {height: 60px; margin-left: 0; margin-right: 0;}
+                }
+            }
+            .navbar-toggle {margin: 32px 15px 32px 0; padding: 15px 10px;}
+        }
     }
 }

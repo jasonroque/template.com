@@ -1,4 +1,4 @@
-<div class="container" id="featured">
+<div class="container categories" id="featured">
     <div class="row">
         <?php foreach ($featured_news as $featured): ?>
             <div class="col-sm-6 col-md-6">

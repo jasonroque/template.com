@@ -4,7 +4,7 @@
             <div class="info">
                 <h1>
                     <?php echo $title; ?><br/>
-                    <?php if(isset($subtitle) && $subtitle !== '') {echo '<small>'.$subtitle.'</small>';} ?> 
+                    <?php if(isset($subtitle)) { ?><small><?php echo $subtitle; ?></small> <?php } ?>
                 </h1>
             </div>
         </div>

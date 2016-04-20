@@ -11,6 +11,7 @@ class Pages extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->model('Carousel_Model');
         $this->load->model('News_Model');
+        $this->load->model('Services_Model');
 
         $this->load->library('breadcrumbs');
         $this->breadcrumbs->unshift("<a href='/'><i class='fa fa-home'></i></a>", '/pages/home');
@@ -24,12 +25,13 @@ class Pages extends CI_Controller {
         $data['featured_news'] = $this->News_Model->get_recent_two();
         $data['other_news'] = $this->News_Model->get_next_recent_three();
 
+        $data['services'] = $this->Services_Model->all();
+        
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
             show_404();
         }
 
         $this->breadcrumbs->push(ucfirst($page), '/' . $page . '/');
-
         $data['breadcrumbs'] = $this->breadcrumbs->show();
 
         $this->load->view('templates/header', $data);
