@@ -16,6 +16,21 @@ class News_model extends CI_Model {
         return $query->row_array();
     }
 
+    public function get_news_by_category($category = FALSE) {
+        if ($category === FALSE) {
+            $query = $this->db->get('test_table');
+            return $query->result_array();
+        }
+        
+        $this->db->from('test_table');
+        $where = "category LIKE '%" . str_replace('-', ' ', $category) . "%'";
+        $this->db->where($where);
+        
+        $query = $this->db->get();
+        
+        return $query->result_array();
+    }
+    
     public function get_recent_two() {
         $this->db->from('test_table');
         $this->db->order_by("date_published", "desc");
@@ -51,5 +66,39 @@ class News_model extends CI_Model {
 
         return $this->db->insert('test_table', $data);
     }
+    
+    public function get_recent_similar($category) {
+        $this->db->from('test_table');
+        
+        $exploded = explode('|', $category);
+        $where = "category LIKE '%" . $exploded[0] . "%' ";
+        
+        foreach($exploded as $next) {
+            $where .= "OR category LIKE '%" . $next . "%' ";
+        }
+        
+        $this->db->where($where);
+        $this->db->order_by("date_published", "desc");
+        $this->db->limit('4');
+        
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
+    public function get_categories() {
+        $this->db->select('category');
+        $this->db->from('test_table');
+        
+        $query = $this->db->get();
+        $result = array();
+        
+        foreach($query->result_array() as $category) {
+            $exploded = explode('|', $category['category']);
+            foreach($exploded as $next) {
+                array_push($result, $next);
+            }
+        }
+        
+        return array_unique($result);
+    }    
 }
