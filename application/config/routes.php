@@ -57,6 +57,7 @@ $route['news/category/(:any)'] = 'news/category/$1';
 $route['news/category'] = 'news';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
+$route['services/upload'] = 'services/upload';
 $route['services/(:any)'] = 'services/view/$1';
 $route['services'] = 'services';
 $route['(:any)'] = 'pages/view/$1';

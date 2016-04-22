@@ -141,32 +141,32 @@
         <div role="tabpanel" class="tab-pane fade in active" id="tab1">
             <div class="container">
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-2">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
@@ -175,17 +175,17 @@
         <div role="tabpanel" class="tab-pane" id="tab2">
             <div class="container">
                 <div class="pane-content col-xs-4 col-sm-4 col-md-4">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-4">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-4 col-sm-4 col-md-4">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
@@ -194,22 +194,22 @@
         <div role="tabpanel" class="tab-pane" id="tab3">
             <div class="container">
                 <div class="pane-content col-xs-6 col-sm-3 col-md-3">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-6 col-sm-3 col-md-3">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-6 col-sm-3 col-md-3">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-6 col-sm-3 col-md-3">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
@@ -218,12 +218,12 @@
         <div role="tabpanel" class="tab-pane" id="tab4">
             <div class="container">
                 <div class="pane-content col-xs-6 col-sm-6 col-md-6">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
                 <div class="pane-content col-xs-6 col-sm-6 col-md-6">
-                    <a href="">
+                    <a href="#" class="icon-wrapper">
                         <h4>Lorem ipsum dolor</h4>
                     </a>
                 </div>
@@ -241,14 +241,14 @@
                         <a href="<?php echo '/news/' . $featured['slug']; ?>">
                             <img src="<?php if (isset($featured['img']) && $featured['img'] !== '') { ?>/assets/images/featured/<?php echo $featured['img'] ?><?php } else { ?>http://placehold.it/840x420<?php } ?>" class="img-responsive center-block" />
                         </a>
-                        <span class="date-published"><?php echo $featured['date_published'] = date("M j Y"); ?></span>
+                        <span class="date-published"><?php echo date('F d Y', strtotime($featured['date_published'])) ?></span>
                     </div>
                     <div class="caption">
                         <h3><?php echo $featured['title'] ?></h3>
-                        <p>
+                        <div class="body">
                             <?php echo substr($featured['paragraph'], 0, 200); ?><?php if (strlen($featured['paragraph']) >= 200) { ?>...<?php } ?> 
-                            <a href="<?php echo '/news/' . $featured['slug']; ?>">Read More</a>
-                        </p>
+                        </div>
+                        <a class="btn btn-default btn-link" href="<?php echo '/news/' . $featured['slug']; ?>">Read More</a>
                     </div>
                 </div>
             </div>
@@ -258,12 +258,53 @@
                 <?php foreach ($other_news as $other): ?>
                     <a href="<?php echo '/news/' . $other['slug']; ?>" class="btn btn-lg btn-default">
                         <h4><?php echo $other['title'] ?></h4>
-                        <h5><?php echo substr($other['paragraph'], 0, 45) . "..."; ?></h5>
-                        <p><?php echo $other['date_published'] = date("M j Y"); ?></p>
+                        <div class="body">
+                            <?php echo substr($other['paragraph'], 0, 45); ?><?php if (strlen($other['paragraph']) >= 45) { ?>...<?php } ?> 
+                        </div>
+                        <p><?php echo date('F d Y', strtotime($other['date_published'])) ?></p>
                     </a>
                 <?php endforeach; ?>
                 <a href="/news" class="btn btn-lg btn-default" id="more-stuff">
                     <h3>More News</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="test-buttons">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <a href="#" class="icon-wrapper">
+                    <span class="fa fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-desktop fa-stack-1x"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#" class="icon-wrapper">
+                    <span class="fa fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-shield fa-stack-1x"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#" class="icon-wrapper">
+                    <span class="fa fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-mobile-phone fa-stack-1x"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <a href="#" class="icon-wrapper">
+                    <span class="fa fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-scissors fa-stack-1x"></i>
+                    </span>
                 </a>
             </div>
         </div>

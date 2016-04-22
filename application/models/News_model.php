@@ -21,16 +21,16 @@ class News_model extends CI_Model {
             $query = $this->db->get('test_table');
             return $query->result_array();
         }
-        
+
         $this->db->from('test_table');
         $where = "category LIKE '%" . str_replace('-', ' ', $category) . "%'";
         $this->db->where($where);
-        
+
         $query = $this->db->get();
-        
+
         return $query->result_array();
     }
-    
+
     public function get_recent_two() {
         $this->db->from('test_table');
         $this->db->order_by("date_published", "desc");
@@ -39,48 +39,57 @@ class News_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+
     public function get_next_recent_three() {
         $this->db->from('test_table');
         $this->db->order_by("date_published", "desc");
         $this->db->limit('5');
-        
+
         $query = $this->db->get();
-        
+
         return array_slice($query->result_array(), 2, 3, true);
     }
 
     public function set_news() {
-        $this->load->helper('url');
+        $this->load->helper(array('form', 'url'));
+
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
+
+        $imploded = '';
+
+        if (is_array($this->input->post('category'))) {
+            $imploded = implode('|', $this->input->post('category'));
+        }
 
         $data = array(
             'title' => $this->input->post('title'),
             'author' => $this->input->post('author'),
             'slug' => $slug,
-            'img' => $this->input->post('img'),
+            'img' => $file_name,
             'paragraph' => $this->input->post('text'),
-            'category' => $this->input->post('category'),
+            'category' => $imploded,
         );
 
         return $this->db->insert('test_table', $data);
     }
-    
+
     public function get_recent_similar($category) {
         $this->db->from('test_table');
-        
+
         $exploded = explode('|', $category);
         $where = "category LIKE '%" . $exploded[0] . "%' ";
-        
-        foreach($exploded as $next) {
+
+        foreach ($exploded as $next) {
             $where .= "OR category LIKE '%" . $next . "%' ";
         }
-        
+
         $this->db->where($where);
         $this->db->order_by("date_published", "desc");
         $this->db->limit('4');
-        
+
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -88,17 +97,20 @@ class News_model extends CI_Model {
     public function get_categories() {
         $this->db->select('category');
         $this->db->from('test_table');
-        
+
         $query = $this->db->get();
         $result = array();
-        
-        foreach($query->result_array() as $category) {
+
+        foreach ($query->result_array() as $category) {
             $exploded = explode('|', $category['category']);
-            foreach($exploded as $next) {
-                array_push($result, $next);
+            foreach ($exploded as $next) {
+                if ($next !== '') {
+                    array_push($result, $next);
+                }
             }
         }
-        
+
         return array_unique($result);
-    }    
+    }
+
 }

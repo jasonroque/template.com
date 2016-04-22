@@ -45,7 +45,10 @@ header {
             .navbar {
                 border: none;
                 min-height: 40px;
-                .navbar-nav>li>a {padding: 10px 15px; font-weight: 600; color: #fff}
+                .navbar-nav>li>a {
+                    padding: 10px 15px; font-weight: 600; color: #fff;
+                    &:hover {background: $primary-color;}
+                }
             }
         }
     }
@@ -164,7 +167,7 @@ footer {
     .breadcrumb-wrapper {
         background:#fff;
         padding: 8px 0;
-        @include box-shadow(0px 5px 15px -10px rgba(153,153,153,1)); 
+        @include box-shadow(0px 4px 15px -10px rgba($black-color, 1)); 
 
         .breadcrumb {
             background: none;
@@ -348,6 +351,25 @@ footer {
             padding: 4px 30px;
 
             h3 {font-weight: 600}
+
+            .body {
+                h1,h2,h3,h4,h5,h6, p {display: none;}
+                p:first-of-type {display: block !important;}
+            }
+            
+            .btn-link {
+                background: $primary-color; 
+                border-color: $primary-color; 
+                color: #fff;
+                margin-bottom: 10px;
+                border-radius: 3px;
+                
+                &:hover {
+                    text-decoration: none;
+                    background: $darker-color;
+                    border-color: $darker-color;
+                }
+            }
         }
 
         .info {
@@ -357,7 +379,7 @@ footer {
                 li {
                     display: inline-block; 
                     list-style: none; 
-                    border-right: 1px solid darken(#eee, 10%);
+                    border-right: 1px solid $grey-border;
                     padding-right: 8px;
                     margin-right: 5px;
                     &:last-child {border-right: none;}
@@ -391,11 +413,12 @@ footer {
 
         h3, h4, h5, p {@include transition(.2s all ease);}
 
-        p {font-size: 12px; color: #aaa;}
         h3 {font-size: 20px; margin: 10px 0;}
         h4 {font-weight:600;}
         h5 {margin: 10px 0;}
-
+        .body p {font-size: 14px; color: $black-color;}
+        p {color: #aaa; font-size: 12px}
+        
         &:hover {
             border-left: 3px solid $darker-color;
             background: $primary-color;
@@ -414,9 +437,58 @@ footer {
                 color: #aaa;
                 position: absolute;
                 right: 16px;
-                top: 30%;
+                top: 35%;
                 @include transition(.2s all ease);
             }
+            &:hover {color: #fff;}
+        }
+    }
+}
+
+#test-buttons {
+    background: $dark-color;
+    position: relative;
+    min-height: 140px;
+
+    .col-md-3 {text-align: center;}
+
+    .icon-wrapper {
+        display: inline-block;
+        margin: 15px auto;
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+        color: $primary-color;
+
+        &:after  {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 7px;
+            @include box-shadow(0 0 0 4px #fff);
+            @include transition(transform .2s, opacity .2s);
+            transform: scale(1.2);
+            opacity: 0;
+            border-radius: 100px;
+        }
+
+        &:hover {
+            color: #fff;
+            .fa-stack .fa-stack-1x {color: $primary-color;}
+
+            &:after {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .fa-stack {
+            text-align: center;
+            .fa-stack-1x {color: #fff;}
         }
     }
 }
@@ -453,7 +525,7 @@ footer {
 
 #product-list {
     margin-top: -30px;
-    border-bottom: 1px solid darken(#eee, 10%);
+    border-bottom: 1px solid $grey-border;
 
     .nav-tabs .col-md-3 {
         padding: 0;
@@ -465,7 +537,7 @@ footer {
             margin-top: 30px;
             background: #fff;
             overflow: hidden;
-            border-left: 1px solid darken(#eee, 10%);
+            border-left: 1px solid $grey-border;
 
             img, h2, .fa {@include transition(all .2s ease)}
 
@@ -479,7 +551,7 @@ footer {
             }
             .fa, h2 {z-index: 6 !important; position: relative;}
             h2 {color: #222; font-size: 28px;}
-            .fa {margin: 0; @include transition(all .2s ease); color: darken(#eee, 10%)}
+            .fa {margin: 0; @include transition(all .2s ease); color: $grey-border}
 
             &:hover {
                 border-left: 1px solid #555;
@@ -488,6 +560,7 @@ footer {
                 img{opacity: .8; @include transform(scale(1.1))}
                 h2{color: #fff;}
                 .fa {margin: -15px 0 15px; color: $primary-color;}
+                .fa {@include transform(rotate(180deg))}
             }
         }      
 
@@ -497,10 +570,10 @@ footer {
             border-left: 1px solid #555;
             img{opacity: .8; @include transform(scale(1.1))}
             h2{color: #fff;}
-            .fa {margin: -15px 0 15px; color: $primary-color;}
+            .fa {margin: -15px 0 15px; color: $primary-color; @include transform(rotate(180deg))}
         }
 
-        &:last-child a {border-right: 1px solid darken(#eee, 10%);}
+        &:last-child a {border-right: 1px solid $grey-border;}
     }
 
     .tab-content {
@@ -512,7 +585,7 @@ footer {
                 a {
                     display: block;
                     padding: 15px;
-                    border-left: 1px solid darken(#eee, 10%);
+                    border-left: 1px solid $grey-border;
                     h4 {margin: 0; color: #222; @include transition(all .2s ease);}
 
                     &:hover {
@@ -521,7 +594,7 @@ footer {
                     }
                 }
 
-                &:last-child a {border-right: 1px solid darken(#eee, 10%);}
+                &:last-child a {border-right: 1px solid $grey-border;}
             }
         }
     }
@@ -557,10 +630,14 @@ footer {
         .date-published {font-size: 18px; color: darken(#eee, 20%);}
 
         h2{ margin-top: 0; margin-bottom: 30px;}
-        p {font-size: 17px; padding-bottom: 30px}
+        
+        .body {
+            margin-bottom: 30px;
+            p {font-size: 17px; padding-bottom: 15px; margin-bottom: 0;}
+        }
 
         .info {
-            border-top: 1px solid darken(#eee, 10%);
+            border-top: 1px solid $grey-border;
             padding-bottom: 5px;
             ul {
                 padding-top: 15px;
@@ -569,7 +646,7 @@ footer {
                     display: inline-block; 
                     font-size: 18px; 
                     padding: 0 15px; 
-                    border-right: 1px solid darken(#eee, 10%);
+                    border-right: 1px solid $grey-border;
 
                     a {
                         color: darken(#eee, 20%);
@@ -607,6 +684,19 @@ footer {
     }
 }
 
+#create-news {
+    margin-bottom: 45px;
+    
+    .checkbox {
+        font-size: 16px;
+        &:first-of-type {margin-top: 0}
+    }
+}
+
+#success-news-post {
+    margin-bottom: 45px;
+}
+
 #services {
     .btn-group-vertical {
         border-bottom: none;
@@ -618,30 +708,72 @@ footer {
                 color: #fff;
                 position: relative;
                 @include box-shadow(none);
-                
+
                 &:after {
                     width: 35px;
                     height: 35px;
                     content: "";
                     position: absolute;
                     background-color: $primary-color;
-                    right: -17px; top: 7px;
+                    right: -18px; top: 7px;
                     border-radius: 3px;
                     @include transform(rotate(45deg));
                 }
             }
-            
-            &:hover {border-color: $primary-color; border-left-color: $darker-color;}
+            &:after {
+                width: 35px;
+                height: 35px;
+                content: "";
+                position: absolute;
+                background-color: #fff;
+                right: 7px; top: 7px;
+                border-radius: 3px;
+                @include transform(rotate(45deg));
+                @include transition(all .2s ease);
+            }
+            &:hover, &:focus {
+                border-color: $primary-color; 
+                border-left-color: $darker-color;
+                background: $dark-color; 
+                &:after {right: -18px; background-color: $dark-color;}
+
+            }
         }
     }
-    
-    .service-content {
+
+    .service-wrapper {
         margin-bottom: 60px;
+
+        .service-content {
+            margin-bottom: 45px;
+            h3 {margin-top: 0;}
+        }
 
         p {font-size: 16px; margin-bottom: 15px;}
         .btn {
-            background: $primary-color; color: #fff; 
-            border-color: $primary-color;}
+            background: $primary-color;
+            color: #fff; 
+            border-color: $primary-color;
+            border-left: 3px solid $primary-color;
+        }
+    }
+}
+
+#about {
+    .row {
+        margin-bottom: 20px;
+
+        .testimonial {margin-bottom: 30px;}
+
+        .thumbnail {
+            padding: 0;
+            img {border-bottom: 3px solid $primary-color}
+            .caption {padding: 0 10px 10px}
+        }
+
+        h4 {margin-top: 20px}
+        h5 {font-size: 20px; margin-top: 30px;}
+        p {font-size: 16px;}
     }
 }
 
@@ -704,12 +836,11 @@ footer {
 
         .col-md-6, .col-md-3 {
             border-bottom: 1px solid;
-            border-color: darken(#eeeeee, 10%);
+            border-color: $grey-border;
 
             &:last-child {border-right: none;}            
             a {
-                color: #222;
-
+                color: $black-color;
                 &:hover {background: $primary-color; color: #fff;}
             }
         }
@@ -791,7 +922,7 @@ footer {
         .nav-tabs {
             .col-md-3 {
                 margin: 0!important;
-                border-top: 1px solid darken(#eee, 10%);
+                border-top: 1px solid $grey-border;
                 &:nth-child(1), &:nth-child(2) {border-top: none;}
 
                 a {
@@ -816,7 +947,7 @@ footer {
         }
 
         .tab-content .tab-pane .pane-content {
-            a {border-bottom: 1px solid darken(#eee, 10%);}
+            a {border-bottom: 1px solid $grey-border;}
             h4 {font-size: 14px;}
 
             &:last-child a{border-right: none;}
@@ -851,6 +982,33 @@ footer {
             padding-right: 30px; 
             /*border-right: 3px solid $primary-color;*/
             border-bottom: 1px solid #ccc;
+        }
+    }
+
+    #services {
+        .btn-group-vertical {
+            margin-bottom: 45px;
+
+            a {
+                &.active, &:hover, &:focus {
+                    &:after {display: none;}
+                }
+
+                &:after {display: none;}
+            }
+        }
+
+        .service-wrapper {
+            margin: 0 -15px;
+            .service-content {
+                padding: 0;
+                h3 {margin-top: 20px}
+            }
+        }
+
+        #all-services {
+            padding: 0;
+            .service-wrapper{ margin: 0 0 45px; }
         }
     }
 }

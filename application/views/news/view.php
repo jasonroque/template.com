@@ -6,7 +6,9 @@
                 <article>
                     <span class="date-published"><?php echo $featured['date_published'] = date("F d Y"); ?></span>
                     <h2><?php echo $featured['title']; ?></h2>
-                    <p><?php echo $featured['paragraph']; ?></p>
+                    <div class="body">
+                        <?php echo $featured['paragraph']; ?>
+                    </div>
 
                     <div class="info">
                         <ul>
@@ -30,7 +32,7 @@
                         <?php foreach ($similar as $sim): ?>
                             <a href="/news/<?php echo $sim['slug']; ?>" class="btn btn-lg btn-default">
                                 <h4><?php echo $sim['title'] ?></h4>
-                                <p><?php echo $sim['date_published'] = date("M j Y"); ?></p>
+                                <p><?php echo date('F d Y' , strtotime($sim['date_published'])) ?></p>
                             </a>
                         <?php endforeach; ?>
                         <a href="/news" class="btn btn-lg btn-default" id="more-stuff">More News</a>

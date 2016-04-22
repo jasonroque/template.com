@@ -1,15 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// the menu basics (text navbar)
-$config['menu_choices'] = array(
-    'Home' => '/',
-    'Products' => '/products',
-    'Distributors' => '/distributors',
-    'Learn' => '/learn',
-    'Contact' => '/contact',
-);
-
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER

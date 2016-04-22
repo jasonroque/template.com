@@ -11,10 +11,10 @@
                     </div>
                     <div class="caption">
                         <h3><?php echo $featured['title'] ?> <small>by <?php echo $featured['author']; ?></small></h3>
-                        <p>
+                        <div class="body">
                             <?php echo substr($featured['paragraph'], 0, 200); ?><?php if (strlen($featured['paragraph']) >= 200) { ?>...<?php } ?> 
-                            <a href="<?php echo '/news/' . $featured['slug']; ?>">Read More</a>
-                        </p>
+                        </div>
+                        <a class="btn btn-default btn-link" href="<?php echo '/news/' . $featured['slug']; ?>">Read More</a>
                     </div>
                     <div class="info">
                         <ul>
@@ -22,8 +22,8 @@
                             <li>
                                 <ul>
                                     <?php $categories = explode('|', $featured['category']); ?>
-                                    <?php foreach($categories as $category): ?>
-                                    <li><a href="/news/category/<?php echo str_replace(' ', '-', strtolower($category)) ?>"><?php echo $category;?></a></li>
+                                    <?php foreach ($categories as $category): ?>
+                                        <li><a href="/news/category/<?php echo str_replace(' ', '-', strtolower($category)) ?>"><?php echo $category; ?></a></li>
                                     <?php endforeach; ?>
                                 </ul>
                             </li>

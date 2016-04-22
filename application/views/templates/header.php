@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>CodeIgniter Tutorial | <?php echo $title; ?></title>
-        
+
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
@@ -13,8 +13,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/assets/css/layout.css">
-        
+
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script>tinymce.init({selector: 'textarea'});</script>
     </head>
     <body>
         <header>
@@ -52,18 +55,18 @@
                                 <button type="submit" class="btn btn-default">Submit</button>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/services">Services</a></li>
-                                <li><a href="/news">News</a></li>
-                                <li><a href="#">Link</a></li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <a href="/services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="/services">All Services</a></li>
+                                        <?php foreach ($service_nav['services_nav'] as $service_nav): ?>
+                                            <li><a href="<?php echo '/services/' . $service_nav['slug']; ?>"><?php echo $service_nav['title']; ?></a></li>
+                                        <?php endforeach; ?>
+
                                     </ul>
                                 </li>
+                                <li><a href="/news">News</a></li>
+                                <li><a href="/about">About</a></li>
                                 <li><a href="#">Link</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->

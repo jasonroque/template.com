@@ -1,6 +1,6 @@
 <?php
 
-class Pages extends CI_Controller {
+class Pages extends MY_Controller {
 
     /**
      * Constructor.
@@ -31,6 +31,7 @@ class Pages extends CI_Controller {
             show_404();
         }
 
+        $data['service_nav'] = $this->view_data;
         $this->breadcrumbs->push(ucfirst($page), '/' . $page . '/');
         $data['breadcrumbs'] = $this->breadcrumbs->show();
 
